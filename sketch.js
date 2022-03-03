@@ -18,8 +18,6 @@ function setup() {
   createCanvas(600, 600);
 
   createButton("Start").mousePressed(startSketch);
-  mic = new p5.AudioIn();
-  mic.start();
  
   // frameRate(20);
   // textSize(0);
@@ -29,12 +27,12 @@ function setup() {
   // clr = color(255, 0, 0);
   
   a = 0
-  b = width; 
+  b = width;
   direction = true;
   frameRate(50);
   
   //Framecount
-  fill('white');
+  //fill('white');
   textSize(100);
   text()
   
