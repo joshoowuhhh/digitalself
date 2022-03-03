@@ -10,12 +10,13 @@ let direction;
 let yPos = 0;
 let xPos = 0;
 let balls =[];
+let sketchStarted = false;
 
 
 function setup() {
    
   createCanvas(600, 600);
-   
+
   createButton("Start").mousePressed(startSketch);
   mic = new p5.AudioIn();
   mic.start();
@@ -47,34 +48,41 @@ function setup() {
 }
 
 function startSketch() {
-  console.log('start sketch!')
+  mic = new p5.AudioIn();
+  mic.start();
+
+  sketchStarted = true; 
+  
 } 
 
 function draw() {
-  
-  background(171, 120, 210);
-  
-  console.log("mic level: " + mic.getLevel()); 
-  c = color
-  micLevel = mic.getLevel();
-  micVar = map(mic.getLevel(), 0, 0.1, 0, 245);
-  
-  {
-   for (let j = 0; j<30;j++)
+
+  if (sketchStarted) {
+    micLevel = mic.getLevel(0.9);
+    
+    background(171, 120, 210);
+    
+    console.log("mic level: " + mic.getLevel()); 
+    c = color
+    micLevel = mic.getLevel();
+    micVar = map(mic.getLevel(), 0, 0.1, 0, 245);
+    
     {
-      balls[j].display();
-      balls[j].move();
-    }
-}
-  drawMovers();
-  drawRect();
-  drawMovement();
-  drawMoon(moonColor);
-  drawMe();
-  drawSmiley();
-  
-  // text(frameCount, width / 1.4, height / 1.1);
-  
+     for (let j = 0; j<30;j++)
+      {
+        balls[j].display();
+        balls[j].move();
+      }
+  }
+    drawMovers();
+    drawRect();
+    drawMovement();
+    drawMoon(moonColor);
+    drawMe();
+    drawSmiley();
+    
+  }
+
 }
 
 function drawRect() {
