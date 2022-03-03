@@ -15,7 +15,8 @@ let balls =[];
 function setup() {
    
   createCanvas(600, 600);
-  
+   
+  createButton("Start").mousePressed(startSketch);
   mic = new p5.AudioIn();
   mic.start();
  
@@ -44,6 +45,10 @@ function setup() {
     }
   
 }
+
+function startSketch() {
+  console.log('start sketch!')
+} 
 
 function draw() {
   
