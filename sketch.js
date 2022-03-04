@@ -14,57 +14,56 @@ let sketchStarted = false;
 
 
 function setup() {
-   
+
   createCanvas(600, 600);
 
   createButton("Start").mousePressed(startSketch);
- 
+
   // frameRate(20);
   // textSize(0);
  //  textAlign(CENTER);
-  
+
   // frameRate(fr); // Attempt to refresh at starting FPS
   // clr = color(255, 0, 0);
-  
+
   a = 0
   b = width;
   direction = true;
   frameRate(50);
-  
+
   //Framecount
   //fill('white');
   textSize(100);
   text()
-  
+
   for (let j = 0; j<30;j++)
     {
       let x = random(0, width);
       let y = random(0, width);
       balls[j]= new Ball(x,y);
     }
-  
+
 }
 
 function startSketch() {
   mic = new p5.AudioIn();
   mic.start();
 
-  sketchStarted = true; 
-  
-} 
+  sketchStarted = true;
+}
 
 function draw() {
 
   if (sketchStarted) {
     micLevel = mic.getLevel(0.9);
-    
+
     background(171, 120, 210);
-    
-    console.log("mic level: " + mic.getLevel()); 
+
+    console.log("mic level: " + mic.getLevel());
     c = color
     micLevel = mic.getLevel();
     micVar = map(mic.getLevel(), 0, 0.1, 0, 245);
-    
+
     {
      for (let j = 0; j<30;j++)
       {
@@ -78,7 +77,7 @@ function draw() {
     drawMoon(moonColor);
     drawMe();
     drawSmiley();
-    
+
   }
 
 }
@@ -108,7 +107,7 @@ class Ball
     this.t = int(random(360));
     this.s = random(50,20);
   }
-  
+
   display()
   {
     push();
@@ -118,7 +117,7 @@ class Ball
       fill(0,0,0);
     pop();
   }
-  
+
   move()
   {
     this.t = this.t + this.s;
@@ -215,7 +214,7 @@ strokeWeight(2);
 stroke(51);
  arc(243, 430, 50, 40, radians(180), radians(0));
  arc(192, 430, 50, 40, radians(180), radians(0));
- 
+
  //bottom lip
  c = color(255, 150, 138);
 fill(c);
@@ -249,21 +248,21 @@ fill(c);
 strokeWeight(2);
 stroke(51);
  arc(218, 370, 50, 40, radians(180), radians(0));
- 
+
  //left ear (facing)
 c = color(195, 149, 130);
 fill(c);
 strokeWeight(2);
 stroke(51);
  arc(99, 340, 70, 70, radians(90), radians(270));
- 
+
  //right ear (facing)
 c = color(195, 149, 130);
 fill(c);
 strokeWeight(2);
 stroke(51);
  arc(341, 340, 70, 70, radians(270), radians(90));
- 
+
  //left earring (facing)
  c = color(204, 255, 255);
 fill(c);
@@ -277,14 +276,14 @@ fill(c);
 strokeWeight(2);
 stroke(51);
 circle(355, 360, 20);
-  
+
  //triangles
   c = color(61, 20, 166);
 fill(c);
 //triangle(133, 200, 161, 145, 189, 200);
 //triangle(252, 200, 277, 145, 306, 200);
 
-  
+
 }
 
 function drawSmiley() {
@@ -293,21 +292,21 @@ function drawSmiley() {
   fill(255, 230, 0);
   ellipse(482, 335, 170, 170);
   pop();
-  
+
  //smileyface mouth
   push();
   fill(255, 255, 255);
-  arc(484, 357, 110, 85, radians(0), 
+  arc(484, 357, 110, 85, radians(0),
   radians(180));
   pop();
-  
+
 //smileyface top outline
   push();
   c = color(255, 255, 255)
   fill(255, 255, 255);
   line(539, 357, 429, 357);
   pop();
-  
+
 //smileyface eyes
   push();
   fill(5, 5, 0);
