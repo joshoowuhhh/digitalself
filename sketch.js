@@ -11,13 +11,15 @@ let yPos = 0;
 let xPos = 0;
 let balls =[];
 let sketchStarted = false;
+let button;
 
 
 function setup() {
 
   createCanvas(600, 600);
 
-  createButton("Start").mousePressed(startSketch);
+  button = createButton("Start")
+  button.mousePressed(startSketch);
 
   // frameRate(20);
   // textSize(0);
