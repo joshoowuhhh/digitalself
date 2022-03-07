@@ -18,7 +18,7 @@ function setup() {
 
   createCanvas(600, 600);
 
-  button = createButton("Start")
+  button = createButton("Start");
   button.mousePressed(startSketch);
 
   // frameRate(20);
